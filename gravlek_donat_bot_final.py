@@ -51,7 +51,7 @@ PACKAGES = [
 ]
 
 # 💳 TO'LOV KARTA RAQAMI
-CARD_NUMBER = "8600 XXXX XXXX XXXX"   # O'zingizning karta raqamingiz
+CARD_NUMBER = "5614 6822 1981 7402"   # O'zingizning karta raqamingiz
 CARD_NAME   = "Gravlek Donat"
 
 # ══════════════════════════════════════
@@ -365,7 +365,7 @@ def contact(call):
     kb.add(types.InlineKeyboardButton("🔙 Orqaga", callback_data="back_start"))
     bot.edit_message_text(
         "📞 *Bog'lanish:*\n\n"
-        "👤 Admin: @solim_9804\n"
+        "👤 Admin: t.me/solim_9804\n"
         "⏰ Ish vaqti: 09:00 — 23:00",
         call.message.chat.id,
         call.message.message_id,
