@@ -305,10 +305,10 @@ def admin_confirm(call):
     )
 
     # Admin xabarini yangilash
-    bot.edit_message_text(
-        call.message.text + "\n\n✅ *TASDIQLANDI*",
+    bot.answer_callback_query(call.id)
+    bot.send_message(
         call.message.chat.id,
-        call.message.message_id,
+        call.message.text + "\n\n✅ *TASDIQLANDI*",
         parse_mode="Markdown"
     )
     user_states.pop(customer_id, None)
@@ -331,10 +331,10 @@ def admin_reject(call):
         parse_mode="Markdown"
     )
 
-    bot.edit_message_text(
-        call.message.text + "\n\n❌ *RAD ETILDI*",
+    bot.answer_callback_query(call.id)
+    bot.send_message(
         call.message.chat.id,
-        call.message.message_id,
+        call.message.text + "\n\n❌ *RAD ETILDI*",
         parse_mode="Markdown"
     )
     user_states.pop(customer_id, None)
@@ -363,12 +363,12 @@ def cancel(call):
 def contact(call):
     kb = types.InlineKeyboardMarkup()
     kb.add(types.InlineKeyboardButton("🔙 Orqaga", callback_data="back_start"))
-    bot.edit_message_text(
-        "📞 *Bog'lanish:*\n\n"
-        "👤 Admin: t.me/solim_9804\n"
-        "⏰ Ish vaqti: 09:00 — 23:00",
+    bot.answer_callback_query(call.id)
+    bot.send_message(
         call.message.chat.id,
-        call.message.message_id,
+        "📞 *Bog'lanish:*\n\n"
+        "👤 Admin: @solim_9804\n"
+        "⏰ Ish vaqti: 09:00 — 23:00",
         parse_mode="Markdown",
         reply_markup=kb
     )
@@ -420,4 +420,3 @@ if __name__ == "__main__":
     print(f"📦 {len(PACKAGES)} ta paket yuklandi")
     print("⏳ Xabarlar kutilmoqda...\n")
     bot.infinity_polling()
-
